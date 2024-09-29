@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h2>Adicionar Item</h2>
+            <form id ="casa" action="/sub/{{id}}" method="post">
+                <label for="valor1">Nome do restaurante:</label>
+                <input type="text" id="valor1" name="valor1" required>
+
+                <label for="valor2">Refeição mais vendida:</label>
+                <input type="text" id="valor2" name="valor2" required>
+
+                <label for="valor3">Sobremesa mais vendida:</label>
+                <input type="text" id="valor3" name="valor3" required>
+
+                <label for="valor4">Localização:</label>
+                <input type="text" id="valor4" name="valor4" required>
+
+                <button type="submit" class="btn-add">Adicionar</button>
+            </form>
+        </div>
