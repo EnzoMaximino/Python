@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário e Lista</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h2>Adicionar Item</h2>
+            <form action="/add" method="post">
+                <label for="campo1">Nome do restaurante:</label>
+                <input type="text" id="campo1" name="campo1" required>
+
+                <label for="campo2">Refeição mais vendida:</label>
+                <input type="text" id="campo2" name="campo2" required>
+
+                <label for="campo3">Sobremesa mais vendida:</label>
+                <input type="text" id="campo3" name="campo3" required>
+
+                <label for="campo4">Localização:</label>
+                <input type="text" id="campo4" name="campo4" required>
+
+                <button type="submit" class="btn-add">Adicionar</button>
+            </form>
+        </div>
+
+        <div class="table-section">
+            <h2>Lista de Itens</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome do restaurante</th>
+                        <th>Refeição mais vendida</th>
+                        <th>Sobremesa mais vendida</th>
+                        <th>Localização</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="itemList">
+                {% for restaurante in restaurantes %}
+                    <tr>
+                        <td>{{ restaurante.nome }}</td>
+                        <td>{{ restaurante.refeicao }}</td>
+                        <td>{{ restaurante.sobremesa }}</td>
+                        <td>{{ restaurante.localizacao }}</td>
+                        <td>
+                            <div class="actions">
+                                <a class="btn-edit" href="/subst/{{ restaurante.id }}" method="get"><i class="fas fa-pencil-alt"></i></a>
+                                <a class="btn-delete" href="/{{ restaurante.id }}"><i class="fas fa-trash-alt"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                    <!-- Linhas serão adicionadas aqui -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
