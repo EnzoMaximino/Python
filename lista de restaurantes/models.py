@@ -11,9 +11,9 @@ restaurantes=[]
 def addRestaurante(id,nome,refeicao, sobremesa, localizacao):
     novo_restaurante=Restaurante(id,nome,refeicao,sobremesa,localizacao)
     restaurantes.append(novo_restaurante)
-def excluir(restaurantes,banana):
+def excluir(restaurantes,teste):
     for restaurante in restaurantes:
-        if (restaurante.id == banana):
+        if (restaurante.id == teste):
             restaurantes.remove(restaurante)
             return
 def subs(id,valor1,valor2,valor3,valor4):
